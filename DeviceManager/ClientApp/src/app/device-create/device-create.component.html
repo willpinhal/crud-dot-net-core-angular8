@@ -1,0 +1,23 @@
+<h1 id="tableLabel">Device</h1>
+<hr>
+
+    <div *ngIf="categories">
+        <label>Category:&nbsp;</label>
+        <select [(ngModel)]="selectedOption">
+            <option *ngFor="let category of categories; let i = index" [value]="categories[i]?.id">
+                {{categories[i]?.name}}
+              </option>    
+        </select>
+    </div>
+    <div>
+        <label>Color:&nbsp;</label>
+        <input placeholder="Insert color of device" [(ngModel)]="device.color">
+    </div>
+    <div>
+        <label>Part Number:&nbsp;</label>
+        <input placeholder="Insert part number of device" [(ngModel)]="device.partNumber">
+    </div>
+    <br>
+    <button (click)="Save()">Save</button>
+    
+

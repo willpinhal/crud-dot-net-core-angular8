@@ -1,0 +1,27 @@
+<h1 id="tableLabel">Device</h1>
+
+<p *ngIf="!devices"><em>Loading...</em></p>
+
+<a class="nav-link text-dark" [routerLink]="['/device-create']"
+              >New Device</a
+            >
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="devices">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Categoria</th>
+        <th>Color</th>
+        <th>PartNumber</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let device of devices">
+        <td>{{ device.id }}</td>        
+        <td>{{ device.category.name }}</td>
+        <td>{{ device.color }}</td>
+        <td>{{ device.partNumber }}</td>
+        <td><button (click)="Remove([device.id])">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
